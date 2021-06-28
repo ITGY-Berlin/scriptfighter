@@ -15,7 +15,10 @@ export class EditorFirebaseEffects {
         withLatestFrom(this.store.select(selectUserState)),
         tap(([action, user]) => {
           if (user.uid) {
-            this.firebaseService.updateCode(user.uid, action.payload.code);
+            this.firebaseService
+              .updateCode(user.uid, action.payload.code)
+              .then((data) => console.log(data))
+              .catch((e) => console.log(e));
           }
         }),
       ),

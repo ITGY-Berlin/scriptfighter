@@ -67,6 +67,6 @@ export class FirebaseService {
       .collection('code')
       .ref.limit(100)
       .get()
-      .then((data) => data.docs.map((doc) => doc.data() as FirebaseCode));
+      .then((data: any) => data.docs.map((doc: any) => doc.data() as FirebaseCode));
   }
 }
