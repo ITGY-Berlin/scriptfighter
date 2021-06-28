@@ -1,0 +1,46 @@
+@import './../../../core/scss/index';
+
+:host {
+  display: block;
+}
+
+// stage
+.stage {
+  position: relative;
+  height: 100vh;
+}
+
+.stage-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+
+  video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: grayscale(100);
+  }
+}
+
+.stage-content {
+  max-width: 600px;
+}
+
+.logo-wrapper {
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+}
+
+h2 {
+  color: $color2;
+}

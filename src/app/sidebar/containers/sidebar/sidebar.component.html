@@ -1,0 +1,5 @@
+<div class="burger-menu-wrapper shadow py-1 px-2" [class.open]="isOpen$ | async">
+  <sf-burger-menu [isOpen]="isOpen$ | async" (isOpenChange)="toggleOpen($event)"></sf-burger-menu>
+</div>
+<sf-sidebar-content *ngIf="isOpen$ | async"></sf-sidebar-content>
+<sf-sidebar-action></sf-sidebar-action>

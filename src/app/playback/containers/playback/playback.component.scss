@@ -1,0 +1,74 @@
+@import './../../../../core/scss/index';
+
+@keyframes slide-top {
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+:host {
+  display: block;
+  position: relative;
+}
+
+.stage {
+  height: 378px;
+  position: relative;
+}
+
+.json-code {
+  position: absolute;
+  padding: 10px;
+  left: 0;
+  top: 0;
+  color: $color1;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  justify-content: space-between;
+  backdrop-filter: blur(5px);
+  background: rgba($color2, 0.9);
+  font-size: 0.7rem;
+}
+
+h4 {
+  margin: 0;
+}
+
+.playback {
+  position: absolute;
+  right: 160px;
+  top: 30px;
+  z-index: 10;
+  padding: 10px;
+  background: black;
+  animation: slide-top 0.3s ease;
+}
+
+.scrubber {
+  padding-top: 10px;
+
+  mat-slider {
+    width: 100%;
+  }
+}
+
+.controls {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  user-select: none;
+}
+
+.controls i {
+  margin: 10px;
+}
+
+sf-stage {
+  display: flex;
+  justify-content: center;
+}

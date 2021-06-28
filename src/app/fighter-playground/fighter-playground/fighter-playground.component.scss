@@ -1,0 +1,13 @@
+@import './../../../core/scss/index';
+
+:host {
+  display: block;
+}
+
+.stage {
+  padding: 2rem;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,12 @@
+$sprite-image-box-size: 150px !default;
+
+@mixin create-sprite-animation($animation, $row, $steps) {
+  @keyframes #{$animation} {
+    from {
+      background-position: 0px ($row * -$sprite-image-box-size);
+    }
+    to {
+      background-position: ($steps * -$sprite-image-box-size) ($row * -$sprite-image-box-size);
+    }
+  }
+}

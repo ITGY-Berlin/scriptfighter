@@ -1,0 +1,11 @@
+<div class="grid">
+  <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="playerground"></ngx-monaco-editor>
+  <ngx-monaco-editor [options]="editorOptionsOutput" [ngModel]="playergroundNext"></ngx-monaco-editor>
+  <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="playerOne"></ngx-monaco-editor>
+  <ngx-monaco-editor [options]="editorOptionsOutput" [ngModel]="playerOneNext"></ngx-monaco-editor>
+  <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="playerTwo"></ngx-monaco-editor>
+  <ngx-monaco-editor [options]="editorOptionsOutput" [ngModel]="playerTwoNext"></ngx-monaco-editor>
+</div>
+<button class="d-inline-block calculate-button border bg-primary shadow" (click)="calculateNext()">
+  <i class="fas fa-calculator fa-2x"></i>
+</button>

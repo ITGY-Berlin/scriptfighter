@@ -1,0 +1,95 @@
+@import './../../../../../../core/scss/index';
+
+//
+// ---------- Ryu Sprite ------------
+//
+
+@include create-sprite-animation('idle', 0, 5);
+@include create-sprite-animation('punch_light', 1, 5);
+@include create-sprite-animation('punch_hard', 2, 5);
+@include create-sprite-animation('move', 3, 6);
+@include create-sprite-animation('stun', 4, 3);
+@include create-sprite-animation('kick_light', 5, 5);
+@include create-sprite-animation('kick_hard', 6, 6);
+@include create-sprite-animation('lose', 7, 6);
+@include create-sprite-animation('win', 8, 3);
+@include create-sprite-animation('block', 9, 3);
+@include create-sprite-animation('draw', 10, 1);
+@include create-sprite-animation('fire', 11, 7);
+
+sf-fighter {
+  display: inline-block;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  transition: transform 0.3s ease;
+}
+
+sf-fighter .fighter {
+  background-image: url('/assets/img/ryu-sprite.png');
+  background-position: 0px 0px;
+  top: 100px;
+  height: 100%;
+  animation: idle 0.5s steps(5) infinite;
+  transform: scale3D(1.2, 1.2, 1.2);
+
+  &.flip {
+    transform: scale3D(-1.2, 1.2, 1.2);
+  }
+
+  &.two {
+    background-image: url('/assets/img/ryu-sprite2.png');
+  }
+
+  &.move_forward,
+  &.move_backward {
+    animation: move 0.5s steps(6);
+  }
+
+  &.stun {
+    animation: stun 0.3s steps(3);
+  }
+
+  &.block {
+    animation: block 0.3s steps(3);
+  }
+
+  &.kick_light {
+    animation: kick_light 0.3s steps(5);
+  }
+
+  &.kick_hard {
+    animation: kick_hard 0.5s steps(6);
+  }
+
+  &.punch_light {
+    animation: punch_light 0.3s steps(5);
+  }
+
+  &.punch_hard {
+    animation: punch_hard 0.5s steps(5);
+  }
+
+  &.fire {
+    animation: fire 0.7s steps(7);
+  }
+
+  &.lose {
+    animation: lose 0.5s steps(6);
+    background-position: -750px -1050px;
+  }
+
+  &.win {
+    animation: win 0.5s steps(3);
+    background-position: -300px -1200px;
+  }
+
+  &.draw {
+    animation: draw 0.5s steps(1);
+    background-position: 0px -1500px;
+  }
+}
+
+sf-stage.pause sf-fighter .fighter {
+  animation-play-state: paused;
+}

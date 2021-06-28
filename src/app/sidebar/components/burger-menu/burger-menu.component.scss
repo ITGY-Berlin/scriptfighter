@@ -1,0 +1,35 @@
+@import './../../../../core/scss/index';
+
+:host {
+  display: inline-block;
+}
+
+.burger-menu-button {
+  display: flex;
+  align-items: center;
+  color: $color2;
+  background: transparent;
+  line-height: 1;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &.open .burger-menu-title {
+    opacity: 0;
+  }
+}
+
+.burger-menu-title {
+  display: inline-block;
+  transition: opacity 0.3s ease, width 0.3s ease;
+
+  .burger-menu-button.open & {
+    overflow: hidden;
+    margin-right: 0 !important;
+    opacity: 0;
+    width: 0;
+  }
+}

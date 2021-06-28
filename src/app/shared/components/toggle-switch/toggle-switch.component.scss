@@ -1,0 +1,59 @@
+@import './../../../../core/scss/index';
+
+$toggle-switch-width: 40px;
+$toggle-switch-radius: 20px;
+
+:host {
+  display: inline-block;
+  position: relative;
+  width: $toggle-switch-width;
+  height: $toggle-switch-radius;
+  user-select: none;
+}
+
+.onoffswitch-checkbox {
+  display: none;
+}
+
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  height: $toggle-switch-radius;
+  padding: 0;
+  line-height: $toggle-switch-radius;
+  border: 2px solid $color4;
+  border-radius: $toggle-switch-radius;
+  background-color: lighten($color5, 10%);
+  transition: background-color 0.3s ease-in;
+}
+
+.onoffswitch-label:before {
+  content: '';
+  display: block;
+  width: $toggle-switch-radius;
+  margin: 0px;
+  background: $color2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: $toggle-switch-width - $toggle-switch-radius;
+  border: 2px solid $color4;
+  border-radius: $toggle-switch-radius;
+  box-shadow: 0.4rem 0 0.4rem rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+  background-color: $color2;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label,
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  border-color: $color4;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  right: 0px;
+  box-shadow: -0.4rem 0 0.4rem rgba(0, 0, 0, 0.25);
+}

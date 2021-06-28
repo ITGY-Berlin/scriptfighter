@@ -1,0 +1,2 @@
+<div class="fighter" [class.two]="isFighterTwo" [class.flip]="flip" [ngClass]="action ? action : ''"
+  [@animating]="action" (@animating.done)="onAnimationEnd()"></div>

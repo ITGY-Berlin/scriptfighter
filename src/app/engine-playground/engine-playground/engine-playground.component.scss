@@ -1,0 +1,36 @@
+@import './../../../core/scss/index';
+
+:host {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: white;
+}
+
+.grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  grid-gap: 1px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 1fr 1fr;
+}
+
+ngx-monaco-editor {
+  height: 100%;
+  width: 100%;
+  border: solid 1px black;
+}
+
+.calculate-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: white;
+}

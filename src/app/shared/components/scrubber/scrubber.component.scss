@@ -1,0 +1,41 @@
+@import './../../../../core/scss/index';
+
+:host {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 10px;
+}
+
+.slider {
+  display: block;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  background-image: linear-gradient(to right, $color3 0%, $color4);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: $color2;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: $color2;
+  cursor: pointer;
+}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "scriptfighter-ae81d": {
+      "hosting": {
+        "scriptfighter": [
+          "scriptfighter-ae81d"
+        ]
+      }
+    }
+  }
+}

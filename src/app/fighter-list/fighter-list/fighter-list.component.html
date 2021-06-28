@@ -1,0 +1,20 @@
+<div class="logo"><img src="/assets/img/logo.svg" /></div>
+<h1 class="pb-4 text-center">List of Fighters</h1>
+<div *ngIf="fighterList.length" class="container">
+  <ng-container *ngIf="displayMode === 'grid'">
+    <sf-fighter-card *ngFor="let fighter of fighterList" class="shadow p-4 m-2" [fighter]="fighter">
+      <a class="btn btn-outline-secondary me-2" [routerLink]="['/editor/fighter', fighter.name]" title="show Code"><i
+          class="fas fa-file"></i></a>
+      <button class="btn btn-outline-secondary" (click)="setEnemy(fighter)" title="set as Enemy"><i
+          class="fas fa-angry"></i></button>
+    </sf-fighter-card>
+  </ng-container>
+  <ng-container *ngIf="displayMode === 'list'">
+    <sf-fighter-list-item *ngFor="let fighter of fighterList" class="p-2 m-2" [fighter]="fighter">
+      <a class="btn btn-outline-secondary me-2" [routerLink]="['/editor/fighter', fighter.name]" title="show Code"><i
+          class="fas fa-file"></i></a>
+      <a class="btn btn-outline-secondary me-2" routerLink="/editor" (click)="setEnemy(fighter)" title="set as Enemy"><i
+          class="fas fa-angry"></i></a>
+    </sf-fighter-list-item>
+  </ng-container>
+</div>

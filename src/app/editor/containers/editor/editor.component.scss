@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  height: 100vh;
+  margin: 0;
+}
+
+ngx-monaco-editor {
+  height: 100%;
+  min-height: 200px;
+  overflow: hidden;
+}
+
+:host ::ng-deep ngx-monaco-editor .editor-container {
+  height: 100%;
+}

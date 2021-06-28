@@ -1,0 +1,16 @@
+@import './../../../core/scss/index';
+
+:host {
+  display: block;
+  background-color: $color2;
+  min-height: 100vh;
+}
+
+.logo {
+  height: 100px;
+  text-align: center;
+
+  img {
+    max-height: 100%;
+  }
+}

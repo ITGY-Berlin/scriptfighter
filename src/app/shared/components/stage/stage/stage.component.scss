@@ -1,0 +1,89 @@
+@import './../../../../../core/scss/index';
+
+sf-stage {
+  display: block;
+  width: 672px;
+  height: 378px;
+  position: relative;
+
+  .stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  header {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    position: relative;
+
+    .left {
+      flex: 2;
+      overflow: hidden;
+    }
+
+    .center {
+      flex: 1;
+      text-align: center;
+    }
+
+    .right {
+      flex: 2;
+      overflow: hidden;
+      text-align: right;
+    }
+  }
+
+  .name {
+    padding: 0 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 28px 20px;
+    box-sizing: border-box;
+  }
+
+  .fighter-canvas {
+    position: relative;
+    height: 100%;
+  }
+
+  .time {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  sf-fighter {
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 80px);
+  }
+
+  sf-fighter.flip {
+    left: calc(50% - 60px);
+  }
+
+  sf-health-bar {
+    width: 200px;
+  }
+}

@@ -1,0 +1,49 @@
+.btn-gradient {
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 9.4px;
+  color: $color1;
+  font-weight: bold;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-image: linear-gradient(to top, $color4, $color3);
+  transition: color 0.25s ease-in-out;
+
+  &:hover {
+    color: $color2;
+  }
+}
+
+.icon-gradient {
+  color: $color3;
+  text-shadow: -1px 0 $color4, 0 1px $color4, 1px 0 $color4, 0 -1px $color4;
+  transition: color 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+.icon-gradient:hover {
+  color: $color2;
+}
+
+@supports (background-clip: text) {
+  .icon-gradient {
+    color: darken($color3, 0.6);
+    text-shadow: -1px 0 $color4, 0 1px $color4, 1px 0 $color4, 0 -1px $color4;
+    transition: color 0.25s ease-in-out;
+    cursor: pointer;
+
+    &:not(:hover) {
+      background: linear-gradient($color3, $color4);
+      text-shadow: none;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .icon-gradient:hover {
+    color: $color3;
+  }
+}
+

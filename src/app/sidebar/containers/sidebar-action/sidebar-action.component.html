@@ -1,0 +1,35 @@
+<ng-container *ngIf="(actionItems$ | async) as actionItems">
+  <ng-container *ngFor="let actionItem of actionItems">
+    <ng-container *ngTemplateOutlet="actionItem.url ? link : button; context: { $implicit: actionItem }"></ng-container>
+  </ng-container>
+</ng-container>
+
+<!-- link template -->
+<ng-template #link let-actionItem>
+  <ng-container *ngIf="!actionItem.intern">
+    <a [href]="actionItem.url" target="_blank" class="action-item my-2 py-0 px-2" >
+      <span class="title">{{actionItem.title}}</span>
+      <div class="icon-container">
+        <i [class]="actionItem.icon"></i>
+      </div>
+    </a>
+  </ng-container>
+  <ng-container *ngIf="actionItem.intern">
+    <a [routerLink]="actionItem.url" class="action-item my-2 py-0 px-2" >
+      <span class="title">{{actionItem.title}}</span>
+      <div class="icon-container">
+        <i [class]="actionItem.icon"></i>
+      </div>
+    </a>
+  </ng-container>
+</ng-template>
+
+<!-- button template -->
+<ng-template #button let-actionItem>
+  <button *ngIf="!actionItem.url; else link" class="action-item my-2 py-0 px-2" [class.active]="actionItem.active" (click)="actionItemClicked(actionItem)">
+    <span class="title">{{actionItem.title}}</span>
+    <div class="icon-container">
+      <i [class]="actionItem.icon"></i>
+    </div>
+  </button>
+</ng-template>

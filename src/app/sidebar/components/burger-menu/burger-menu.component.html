@@ -1,0 +1,8 @@
+<button class="burger-menu-button" [class.open]="isOpen" (click)="toggleIsOpen()">
+  <div class="burger-menu-title me-2">Menu</div>
+  <span class="hamburger hamburger--elastic" [class.hamburger--collapse]="isOpen" [class.is-active]="isOpen">
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </span>
+</button>

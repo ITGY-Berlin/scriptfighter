@@ -1,0 +1,33 @@
+<div class="playback shadow" *ngIf="playground">
+  <sf-loading-overlay *ngIf="isBusy$ | async"></sf-loading-overlay>
+  <div class="stage">
+    <sf-stage [playerOne]="playerOne" [playerTwo]="playerTwo" [playground]="playground" [playMode]="play$ | async">
+    </sf-stage>
+    <div class="json-code" *ngIf="!stageView">
+      <div class="col">
+        <h4>world</h4>
+        <pre>{{ playground | json }}</pre>
+      </div>
+      <div class="col">
+        <h4>playerOne</h4>
+        <pre>{{ playerOne | json }}</pre>
+      </div>
+      <div class="col">
+        <h4>playerTwo</h4>
+        <pre>{{ playerTwo | json }}</pre>
+      </div>
+    </div>
+  </div>
+  <div class="scrubber">
+    <sf-scrubber [max]="scrubberMax" [position]="stateListIndex" (positionChange)="onScrubb($event)"></sf-scrubber>
+  </div>
+  <div class="controls">
+    <i (click)="stepBack()" class="fas fa-2x icon-gradient fa-step-backward"></i>
+    <i (click)="togglePlay()" class="fas fa-2x icon-gradient" [class.fa-play]="!(play$ | async)"
+      [class.fa-pause]="play$ | async"></i>
+    <i (click)="stepFor()" class="fas fa-2x icon-gradient fa-step-forward"></i>
+    <i (click)="reset()" class="fas fa-2x icon-gradient fa-redo"></i>
+    <i (click)="switchStage()" class="fas fa-2x icon-gradient" [class.fa-video]="stageView"
+      [class.fa-file-alt]="!stageView"></i>
+  </div>
+</div>

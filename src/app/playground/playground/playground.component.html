@@ -1,0 +1,12 @@
+<input type="text" [value]="value" (input)="onChange($event)" />
+<button (click)="search()">search</button>
+<br>
+<button (click)="getList()">Load List</button>
+<h1>Fighter List</h1>
+<div *ngIf="fighterList.length">
+  <ul>
+    <li *ngFor="let fighter of fighterList">{{fighter.name}}
+      <pre>{{fighter.code}}</pre>
+    </li>
+  </ul>
+</div>

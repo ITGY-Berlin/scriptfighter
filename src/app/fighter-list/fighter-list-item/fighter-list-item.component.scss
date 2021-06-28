@@ -1,0 +1,33 @@
+@import './../../../core/scss/index';
+
+:host {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: box-shadow 0.25s ease, border 0.25s ease;
+
+  &:hover {
+    border: 1px solid rgba(0, 0, 0, 0.075);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+}
+
+.list-item-image {
+  height: 100%;
+  width: 4rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.list-item-title {
+  flex: 1;
+  text-align: left;
+}

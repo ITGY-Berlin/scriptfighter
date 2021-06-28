@@ -1,0 +1,93 @@
+@import './../../../core/scss/index';
+
+@keyframes gray-in {
+  from {
+    filter: grayscale(100%);
+  }
+  to {
+    filter: grayscale(30%);
+  }
+}
+
+:host {
+  display: block;
+}
+
+.stage {
+  position: relative;
+  height: 100vh;
+}
+
+.stage-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+
+  video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: grayscale(30%);
+
+    animation: gray-in 6s ease forwards;
+  }
+}
+
+.sign-in-content {
+  width: 400px;
+  background-color: $color2;
+  color: $color5;
+}
+
+.logo-wrapper {
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+}
+
+.login-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  margin-top: 0.4rem;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+  }
+}
+
+.btn-google {
+  color: #fff;
+  background-color: #dd4b39;
+  border-color: rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background-color: #c23321;
+  }
+}
+
+.btn-github {
+  color: #fff;
+  background-color: #444;
+  border-color: rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background-color: #2b2b2b;
+  }
+}

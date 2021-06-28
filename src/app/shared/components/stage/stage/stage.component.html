@@ -1,0 +1,22 @@
+<div class="stage" *ngIf="isReady" [style.transform]="transform">
+  <sf-background class="background"></sf-background>
+  <header>
+    <div class="left">
+      <sf-health-bar [hp]="playerOne!.hp"></sf-health-bar>
+      <div class="name" [title]="playerOne!.name">{{ playerOne!.name }}</div>
+    </div>
+    <div class="center"><span class="time">{{ playground!.time | playtime }}</span></div>
+    <div class="right">
+      <sf-health-bar class="flip" [hp]="playerTwo!.hp"></sf-health-bar>
+      <div class="name" [title]="playerTwo!.name">{{ playerTwo!.name }}</div>
+    </div>
+  </header>
+  <main>
+    <div class="fighter-canvas">
+      <sf-fighter [position]="playerOne!.position.positionX" [flip]="!playerOne!.position.isLeft"
+        [(action)]="playerOneAnimation"></sf-fighter>
+      <sf-fighter [position]="playerTwo!.position.positionX" [flip]="!playerTwo!.position.isLeft"
+        [(action)]="playerTwoAnimation" [isFighterTwo]="true"></sf-fighter>
+    </div>
+  </main>
+</div>

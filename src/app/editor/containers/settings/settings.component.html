@@ -1,0 +1,13 @@
+<h3>Editor Settings</h3>
+
+<div class="mt-4">
+  <div class="d-flex align-items-center mt-4">
+    <span class="me-4">Toggle Theme</span>
+    <sf-toggle-switch [checked]="themeChecked$ | async" (checkedChange)="toggleTheme($event)"></sf-toggle-switch>
+  </div>
+  <div class="d-flex align-items-center mt-4">
+    <span class="me-4">Font size</span>
+    <input type="number" class="p-1" min="8" max="24" [value]="fontSize$ | async" (input)="changeFontSize($event)">
+    <div class="ms-4" [style.font-size.px]="fontSize$ | async">Code font size example</div>
+  </div>
+</div>

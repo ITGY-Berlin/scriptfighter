@@ -1,0 +1,18 @@
+<div class="stage">
+  <sf-stage [scale]="scale" [playground]="playground" [playerOne]="playerOne" [playerTwo]="playerTwo"></sf-stage>
+</div>
+<div class="px-1">
+  <button class="btn btn-sm btn-primary m-1" (click)="action('idle')">idle</button>
+  <button class="btn btn-sm btn-primary m-1" (click)="action('kick_hard')">kick hard</button>
+  <button class="btn btn-sm btn-primary m-1" (click)="action('kick_light')">kick light</button>
+  <button class="btn btn-sm btn-primary m-1" (click)="action('punch_hard')">punch hard</button>
+  <button class="btn btn-sm btn-primary m-1" (click)="action('punch_light')">punch light</button>
+  <button class="btn btn-sm btn-primary m-1" (click)="action('move_forward')">move backward</button>
+  <button class="btn btn-sm btn-primary m-1" (click)="action('move_backward')">move forward</button>
+  <button class="btn btn-sm btn-primary m-1" (click)="action('block')">block</button>
+  <button class="btn btn-sm btn-primary m-1" (click)="action('fire')">fire</button>
+</div>
+<div class="px-1">
+  <button class="btn btn-sm btn-primary m-1" (click)="scaleUp()">+</button>
+  <button class="btn btn-sm btn-primary m-1"(click)="scaleDown()">-</button>
+</div>

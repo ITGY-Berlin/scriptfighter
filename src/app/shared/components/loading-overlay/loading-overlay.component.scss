@@ -1,0 +1,32 @@
+@import './../../../../core/scss/index';
+
+@keyframes spinner-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(720deg);
+  }
+}
+
+:host {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 100;
+  color: white;
+  font-size: 2.5em;
+  background: rgba(245, 237, 86, 0.1);
+  user-select: none;
+  justify-content: center;
+  align-items: center;
+
+  backdrop-filter: grayscale(100) blur(2px);
+}
+
+i {
+  animation: spinner-rotate 2s ease-in-out infinite;
+}
