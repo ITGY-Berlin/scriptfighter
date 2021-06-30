@@ -55,6 +55,7 @@ export class EditorService {
    * @param code
    */
   saveCode(code: string) {
+    localStorage.setItem('savedCode', code);
     this.store.dispatch(editorSaveCode({ payload: { code } }));
     this.store.dispatch(playbackCalculateBegin());
   }

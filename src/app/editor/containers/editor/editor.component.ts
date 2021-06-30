@@ -54,7 +54,8 @@ export class EditorComponent implements OnInit, OnDestroy {
       .subscribe((user) => {
         if (user && user.fighter) {
           this.codeService.setFighterName(user.fighter.name, 1);
-          this.codeService.setCode(user.fighter.code, 1);
+          const savedCode = localStorage.getItem('savedCode');
+          savedCode ? this.codeService.setCode(savedCode, 1) : this.codeService.setCode(user.fighter.code, 1);
           this.sidebarService.setActions(actionButtonsSignedIn);
         }
       });
