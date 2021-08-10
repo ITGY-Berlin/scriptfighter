@@ -1,6 +1,12 @@
 import {
-    PLAYER_CALCULATE_NEXT, PLAYER_RESET, PLAYER_SET_ACTION, PLAYER_SET_NAME,
-    PlayerCalculateNextAction, PlayerResetAction, PlayerSetNameAction, PlayerSetNextActionAction
+  PlayerCalculateNextAction,
+  PlayerResetAction,
+  PlayerSetNameAction,
+  PlayerSetNextActionAction,
+  PLAYER_CALCULATE_NEXT,
+  PLAYER_RESET,
+  PLAYER_SET_ACTION,
+  PLAYER_SET_NAME,
 } from '../../actions';
 import { Player, PlayerPosition, ScriptActionType } from '../../models';
 import { initialPlayers, playerReducer } from './player.reducer';
@@ -85,7 +91,7 @@ describe('Player Reducer', () => {
     it('should set name to unname on name = null', () => {
       const name = null;
       const defaultName = playerOne.name;
-      const action = generatePayload(1, name);
+      const action = generatePayload(1, name!);
 
       const [p1, p2] = playerReducer([playerOne, playerTwo], action);
       expect(p1.name).toEqual(defaultName, 'player Two name is not set');
@@ -99,7 +105,6 @@ describe('Player Reducer', () => {
       const [p1, p2] = playerReducer([playerOne, playerTwo], action);
       expect(p1.name).toEqual(defaultName, 'player Two name is not set');
     });
-
   });
 
   describe('set Action', () => {
@@ -135,7 +140,7 @@ describe('Player Reducer', () => {
     });
 
     it('should do nothing on invalid action as null', () => {
-      const scriptAction: ScriptActionType = null;
+      const scriptAction: ScriptActionType = null!;
       const defaultAction = playerOne.currentAction;
       const action = generatePayload(1, scriptAction);
 
@@ -145,7 +150,6 @@ describe('Player Reducer', () => {
   });
 
   describe('calculate next', () => {
-
     function generatePayload(player: 1 | 2, enemy: Player): PlayerCalculateNextAction {
       return { type: PLAYER_CALCULATE_NEXT, player, enemy };
     }
