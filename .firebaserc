@@ -1,4 +1,7 @@
 {
+  "projects": {
+    "scriptfighter": "scriptfighter-ae81d"
+  },
   "targets": {
     "scriptfighter-ae81d": {
       "hosting": {
