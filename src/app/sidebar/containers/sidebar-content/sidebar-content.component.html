@@ -2,7 +2,7 @@
   <ng-container *ngIf="user$ | async as user">
     <div class="user-info d-flex align-items-center" *ngIf="user.uid !== null; else loggedOut">
       <img class="user-image me-3" [src]="user.photoURL" />
-      <a routerLink="/user" routerLinkActive="active">{{user.displayName}}</a>
+      <a [routerLink]="[{ outlets: { auth: ['user'] } }]" routerLinkActive="active">{{ user.displayName }}</a>
     </div>
   </ng-container>
 </div>
@@ -14,18 +14,31 @@
       </header>
       <div class="scroll-content">
         <ul class="navigation-list">
-          <li><a class="navigation-item" (click)="closeSidebar()" routerLink="/home" routerLinkActive="active">Home</a>
+          <li>
+            <a class="navigation-item" (click)="closeSidebar()" routerLink="/home" routerLinkActive="active">Home</a>
           </li>
-          <li><a class="navigation-item" (click)="closeSidebar()" routerLink="/editor"
-              routerLinkActive="active">Editor</a></li>
-          <li><a class="navigation-item" (click)="closeSidebar()" routerLink="/documentation"
-              routerLinkActive="active">Documentation</a></li>
-          <li><a class="navigation-item" (click)="closeSidebar()" routerLink="/list" routerLinkActive="active">List of
-              Fighters</a></li>
+          <li>
+            <a class="navigation-item" (click)="closeSidebar()" routerLink="/editor" routerLinkActive="active"
+              >Editor</a
+            >
+          </li>
+          <li>
+            <a class="navigation-item" (click)="closeSidebar()" routerLink="/documentation" routerLinkActive="active"
+              >Documentation</a
+            >
+          </li>
+          <li>
+            <a class="navigation-item" (click)="closeSidebar()" routerLink="/list" routerLinkActive="active"
+              >List of Fighters</a
+            >
+          </li>
           <li><a class="navigation-item">Blog</a></li>
           <li><a class="navigation-item">Contact</a></li>
-          <li><a class="navigation-item" (click)="closeSidebar()" routerLink="/impressum"
-              routerLinkActive="active">Impressum</a></li>
+          <li>
+            <a class="navigation-item" (click)="closeSidebar()" routerLink="/impressum" routerLinkActive="active"
+              >Impressum</a
+            >
+          </li>
         </ul>
       </div>
       <footer>
@@ -42,5 +55,7 @@
 </ng-template>
 
 <ng-template #loggedOut>
-  <a class="btn btn-outline-secondary" routerLink="/signin" routerLinkActive="active">sign in</a>
+  <a class="btn btn-outline-secondary" [routerLink]="[{ outlets: { auth: ['sign-in'] } }]" routerLinkActive="active"
+    >sign in</a
+  >
 </ng-template>

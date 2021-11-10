@@ -1,26 +1,22 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { UserInfoComponent } from './user-info/user-info.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthenticationComponent } from './containers/authentication/authentication.component';
 
 const routes: Routes = [
   {
-    path: 'signin',
-    component: SignInComponent
-  },
-  {
-    path: 'signup',
-    component: SignUpComponent
+    path: 'sign-in',
+    component: AuthenticationComponent,
+    outlet: 'auth',
   },
   {
     path: 'user',
-    component: UserInfoComponent
-  }
+    component: AuthenticationComponent,
+    outlet: 'auth',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AuthenticationRoutingModule { }
+export class AuthenticationRoutingModule {}

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Store } from '@ngrx/store';
 import * as firebase from 'firebase/app';
+import { authCloseModal } from './store/actions/auth.action';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  constructor(private angularFireAuth: AngularFireAuth) {}
+  constructor(private store: Store, private angularFireAuth: AngularFireAuth) {}
 
   signIn(email: string, password: string) {
     return this.angularFireAuth.signInWithEmailAndPassword(email, password);
@@ -48,5 +50,9 @@ export class AuthenticationService {
 
   SignOut() {
     return this.angularFireAuth.signOut();
+  }
+
+  closeModal() {
+    this.store.dispatch(authCloseModal());
   }
 }

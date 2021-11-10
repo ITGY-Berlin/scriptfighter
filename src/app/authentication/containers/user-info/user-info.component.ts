@@ -1,12 +1,11 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { FirebaseService } from 'src/app/shared/services/firebase.service';
-import { UserService } from '../../shared/services/user.service';
-import { UserState } from '../../shared/store/reducers/user.reducer';
-import { AuthenticationService } from '../authentication.service';
+import { UserService } from '../../../shared/services/user.service';
+import { UserState } from '../../../shared/store/reducers/user.reducer';
+import { AuthenticationService } from '../../authentication.service';
 
 @Component({
   selector: 'sf-user-info',
@@ -23,7 +22,6 @@ export class UserInfoComponent implements OnInit {
     private userService: UserService,
     private authenticationService: AuthenticationService,
     private firebaseService: FirebaseService,
-    private router: Router,
     private changeDetectorRef: ChangeDetectorRef,
   ) {}
 
@@ -39,8 +37,12 @@ export class UserInfoComponent implements OnInit {
 
   signOut() {
     this.authenticationService.SignOut().then(() => {
-      this.router.navigate(['']);
+      this.authenticationService.closeModal();
     });
+  }
+
+  closeModal() {
+    this.authenticationService.closeModal();
   }
 
   async saveFighterName(uid: string) {

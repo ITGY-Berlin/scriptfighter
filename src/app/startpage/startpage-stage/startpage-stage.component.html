@@ -15,7 +15,11 @@
           Learn programming in a playful way and prove your skills by putting your code up against other fighters.
         </h2>
         <div class="d-flex justify-content-center pt-3">
-          <a routerLink="/editor" class="btn btn-secondary btn-small ms-2">Lets Code</a>
+          <a
+            [routerLink]="['/', 'editor', { outlets: { overlay: ['playback'] } }]"
+            class="btn btn-secondary btn-small ms-2"
+            >Lets Code</a
+          >
         </div>
       </div>
     </div>

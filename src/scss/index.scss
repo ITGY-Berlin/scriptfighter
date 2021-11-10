@@ -1,4 +1,10 @@
-@import "./../core/scss/index";
-@import "./bootstrap";
-@import "./burger-menu";
-@import "./gradient-effect";
+@import './../core/scss/index';
+@import './bootstrap';
+@import './burger-menu';
+@import './gradient-effect';
+@import './cdk';
+
+.modal-background {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+}

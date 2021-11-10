@@ -1,0 +1,24 @@
+<div class="flex-fill d-flex justify-content-center align-items-center">
+  <div class="sign-in-content p-4">
+    <h1 class="text-center">Login</h1>
+    <div class="mt-4">
+      <ul class="login-list text-left">
+        <li>
+          <button class="btn d-block w-100 text-left btn-google" (click)="signInWithGoogle()">
+            <i class="fab fa-google"></i>
+            <span class="ms-2">Sign In with Google</span>
+          </button>
+        </li>
+        <li>
+          <button class="btn d-block w-100 text-left btn-github" (click)="signInWithGithub()">
+            <i class="fab fa-github"></i>
+            <span class="ms-2">Sign In with Github</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="text-right mt-4">
+      <button class="btn btn-outline-secondary me-2" (click)="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<ng-container class="stage" *ngIf="user$ | async as user">
+  <div class="flex-fill d-flex justify-content-center align-items-center">
+    <div class="user-info-content p-4" *ngIf="user.uid">
+      <h1 class="text-center">User</h1>
+      <div class="d-flex justify-content-between align-items-center mt-4">
+        <h2 class="text-center">{{ user.displayName }}</h2>
+        <div class="text-center" *ngIf="user.photoURL">
+          <div class="user-image-container">
+            <img class="user-image" [src]="user.photoURL" />
+          </div>
+        </div>
+      </div>
+      <div class="mt-4" *ngIf="user.email">
+        <span>{{ user.email }}</span>
+      </div>
+      <div class="mt-4" *ngIf="user.fighter">
+        <div class="form-group">
+          <label for="user-info-fighter-name">Fighter Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="user-info-fighter-name"
+            [class.is-invalid]="invalidUserName"
+            [formControl]="formControl"
+          />
+          <div *ngIf="invalidUserName" class="pt-2">Fighter with Name exists already</div>
+          <div class="pt-2 text-end">
+            <button (click)="saveFighterName(user.uid)" class="btn btn-primary" [disabled]="invalidUserName">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="text-right mt-4">
+        <button class="btn btn-outline-secondary me-2" (click)="closeModal()">Cancel</button>
+        <button class="btn btn-outline-secondary" (click)="signOut()">Logout</button>
+      </div>
+    </div>
+  </div>
+</ng-container>

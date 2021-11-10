@@ -1,24 +1,29 @@
-import { NgModule } from '@angular/core';
+import { OverlayModule } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-
 import { HttpClientModule } from '@angular/common/http';
-import { AuthenticationRoutingModule } from './authentication-routing.module';
-
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { UserInfoComponent } from './user-info/user-info.component';
+import { NgModule } from '@angular/core';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { SharedModule } from '@scriptfighter/shared';
+import { AuthenticationRoutingModule } from './authentication-routing.module';
+import { AuthenticationComponent } from './containers/authentication/authentication.component';
+import { SignInComponent } from './containers/sign-in/sign-in.component';
+import { UserInfoComponent } from './containers/user-info/user-info.component';
+import { AuthRoutingEffects } from './store/effects/auth-routing.effects';
 
 @NgModule({
-  declarations: [SignInComponent, SignUpComponent, UserInfoComponent],
+  declarations: [SignInComponent, UserInfoComponent, AuthenticationComponent],
   imports: [
     CommonModule,
     AuthenticationRoutingModule,
     HttpClientModule,
     AngularFireAuthModule,
-    SharedModule
+    SharedModule,
+    OverlayModule,
+    StoreModule,
+    EffectsModule.forFeature([AuthRoutingEffects]),
   ],
-  exports: []
+  exports: [],
 })
-export class AuthenticationModule { }
+export class AuthenticationModule {}
