@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Player, Playground } from '@scriptfighter/core';
 import { interval, Observable, Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
@@ -9,6 +9,7 @@ import { StateListItem } from '../../store/reducers/playback.reducer';
   selector: 'sf-playback',
   templateUrl: './playback.component.html',
   styleUrls: ['./playback.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlaybackComponent implements OnInit, OnDestroy {
   isBusy$: Observable<boolean> | undefined;
@@ -28,7 +29,7 @@ export class PlaybackComponent implements OnInit, OnDestroy {
   private ngDestroy$: Subject<void> = new Subject();
   private playIntervall$: Subject<void> = new Subject();
 
-  constructor(private scriptPlayerService: PlaybackService) {}
+  constructor(private scriptPlayerService: PlaybackService, private changeDetectorRef: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.isBusy$ = this.scriptPlayerService.isPreparing$;
@@ -114,11 +115,15 @@ export class PlaybackComponent implements OnInit, OnDestroy {
   }
 
   private setState(index: number) {
+    if (!this.stateList) {
+      return;
+    }
     this.stateListIndex = index;
     const { playground, players } = this.stateList![index];
     this.playground = playground;
     this.playerOne = players[0];
     this.playerTwo = players[1];
+    this.changeDetectorRef.markForCheck();
   }
 
   private unsubscribe(): void {
