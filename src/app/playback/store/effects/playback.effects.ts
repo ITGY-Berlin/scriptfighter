@@ -62,11 +62,11 @@ export class PlaybackEffects {
         const raceObserable = combineLatest([
           of(playground),
           of(players),
-          race<ScriptActionType>(
+          race<[ScriptActionType, ScriptActionType]>(
             timer(computeTime).pipe(map(() => 'idle')),
             this.codeService.message$(1).pipe(map((data) => data.data.action)),
           ),
-          race<ScriptActionType>(
+          race<[ScriptActionType, ScriptActionType]>(
             timer(computeTime).pipe(map(() => 'idle')),
             this.codeService.message$(2).pipe(map((data) => data.data.action)),
           ),
@@ -77,8 +77,8 @@ export class PlaybackEffects {
       }),
       map(([playground, players, a1, a2]) => {
         const [p1, p2] = players;
-        let p1Action = playerSetAction(a1, 1);
-        let p2Action = playerSetAction(a2, 2);
+        let p1Action = playerSetAction(a1 as ScriptActionType, 1);
+        let p2Action = playerSetAction(a2 as ScriptActionType, 2);
         let newPlayers = playerReducer(players, p1Action);
         newPlayers = playerReducer(newPlayers, p2Action);
         p1Action = playerCalculateNext(p2, 1);

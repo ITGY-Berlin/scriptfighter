@@ -15,7 +15,7 @@ export class CodeService implements OnDestroy {
 
   private codeOneWorker$ = new BehaviorSubject<Worker | null>(null);
   private codeTwoWorker$ = new BehaviorSubject<Worker | null>(null);
-  private ngOnDestroy$ = new Subject();
+  private ngOnDestroy$ = new Subject<void>();
 
   constructor(private store: Store) {
     this.codeOne$ = this.store.select(selectCodeOne).pipe(distinctUntilChanged());

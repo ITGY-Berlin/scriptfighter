@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Store } from '@ngrx/store';
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/compat/app';
 import { authCloseModal } from './store/actions/auth.action';
 
 @Injectable({
